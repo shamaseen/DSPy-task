@@ -25,6 +25,7 @@ wheels/
 
 # Jupyter Notebook
 .ipynb_checkpoints
+*.ipynb
 
 # DSPy cache
 .dspy_cache/
@@ -49,11 +50,11 @@ Thumbs.db
 dspy_dir.txt
 outputs_mock.jsonl
 
-# Test files (excluded per user request)
+# Test files (not needed for assignment submission)
 test_*.py
 check_model_ready.py
 
-# Documentation (excluded per user request)
+# Documentation (keep local, not in repo)
 README.md
 TESTING_SUMMARY.md
 PROJECT_SUMMARY.md
@@ -62,7 +63,7 @@ OPTIMIZATION_RESULTS.md
 ASSIGNMENT_CHECKLIST.md
 COMPLETE_SUBMISSION.md
 GITHUB_UPLOAD_GUIDE.md
-Complete_Project_Tutorial.ipynb
+MANUAL_PUSH_GUIDE.md
 
 # Large files (optional - keep if needed)
 # data/northwind.sqlite
