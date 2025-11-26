@@ -55,7 +55,6 @@ test_*.py
 check_model_ready.py
 
 # Documentation (keep local, not in repo)
-README.md
 TESTING_SUMMARY.md
 PROJECT_SUMMARY.md
 FINAL_RESULTS.md
@@ -64,6 +63,7 @@ ASSIGNMENT_CHECKLIST.md
 COMPLETE_SUBMISSION.md
 GITHUB_UPLOAD_GUIDE.md
 MANUAL_PUSH_GUIDE.md
+VERIFICATION_REPORT.md
 
 # Large files (optional - keep if needed)
 # data/northwind.sqlite
