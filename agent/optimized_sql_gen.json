@@ -1,0 +1,73 @@
+{
+  "prog.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "question": "How many customers are from France?",
+        "db_schema": "Table: Categories\n  - CategoryID (INTEGER)\n  - CategoryName (TEXT)\n  - Description (TEXT)\n  - Picture (BLOB)\n\nTable: sqlite_sequence\n  - name ()\n  - seq ()\n\nTable: CustomerCustomerDemo\n  - CustomerID (TEXT)\n  - CustomerTypeID (TEXT)\n\nTable: CustomerDemographics\n  - CustomerTypeID (TEXT)\n  - CustomerDesc (TEXT)\n\nTable: Customers\n  - CustomerID (TEXT)\n  - CompanyName (TEXT)\n  - ContactName (TEXT)\n  - ContactTitle (TEXT)\n  - Address (TEXT)\n  - City (TEXT)\n  - Region (TEXT)\n  - PostalCode (TEXT)\n  - Country (TEXT)\n  - Phone (TEXT)\n  - Fax (TEXT)\n\nTable: Employees\n  - EmployeeID (INTEGER)\n  - LastName (TEXT)\n  - FirstName (TEXT)\n  - Title (TEXT)\n  - TitleOfCourtesy (TEXT)\n  - BirthDate (DATE)\n  - HireDate (DATE)\n  - Address (TEXT)\n  - City (TEXT)\n  - Region (TEXT)\n  - PostalCode (TEXT)\n  - Country (TEXT)\n  - HomePhone (TEXT)\n  - Extension (TEXT)\n  - Photo (BLOB)\n  - Notes (TEXT)\n  - ReportsTo (INTEGER)\n  - PhotoPath (TEXT)\n\nTable: EmployeeTerritories\n  - EmployeeID (INTEGER)\n  - TerritoryID (TEXT)\n\nTable: Order Details\n  - OrderID (INTEGER)\n  - ProductID (INTEGER)\n  - UnitPrice (NUMERIC)\n  - Quantity (INTEGER)\n  - Discount (REAL)\n\nTable: Orders\n  - OrderID (INTEGER)\n  - CustomerID (TEXT)\n  - EmployeeID (INTEGER)\n  - OrderDate (DATETIME)\n  - RequiredDate (DATETIME)\n  - ShippedDate (DATETIME)\n  - ShipVia (INTEGER)\n  - Freight (NUMERIC)\n  - ShipName (TEXT)\n  - ShipAddress (TEXT)\n  - ShipCity (TEXT)\n  - ShipRegion (TEXT)\n  - ShipPostalCode (TEXT)\n  - ShipCountry (TEXT)\n\nTable: Products\n  - ProductID (INTEGER)\n  - ProductName (TEXT)\n  - SupplierID (INTEGER)\n  - CategoryID (INTEGER)\n  - QuantityPerUnit (TEXT)\n  - UnitPrice (NUMERIC)\n  - UnitsInStock (INTEGER)\n  - UnitsOnOrder (INTEGER)\n  - ReorderLevel (INTEGER)\n  - Discontinued (TEXT)\n\nTable: Regions\n  - RegionID (INTEGER)\n  - RegionDescription (TEXT)\n\nTable: Shippers\n  - ShipperID (INTEGER)\n  - CompanyName (TEXT)\n  - Phone (TEXT)\n\nTable: Suppliers\n  - SupplierID (INTEGER)\n  - CompanyName (TEXT)\n  - ContactName (TEXT)\n  - ContactTitle (TEXT)\n  - Address (TEXT)\n  - City (TEXT)\n  - Region (TEXT)\n  - PostalCode (TEXT)\n  - Country (TEXT)\n  - Phone (TEXT)\n  - Fax (TEXT)\n  - HomePage (TEXT)\n\nTable: Territories\n  - TerritoryID (TEXT)\n  - TerritoryDescription (TEXT)\n  - RegionID (INTEGER)\n\n",
+        "plan": "",
+        "reasoning": "To determine the number of customers from France, we need to count all unique customer entries in the 'Customers' table where the 'Country' field is set to \"France\". This involves a simple SQL query that filters records based on this condition and then counts them.\n\n```sql\nSELECT COUNT(DISTINCT CustomerID) FROM Customers WHERE Country = 'France';\n```\n\nThis query selects all distinct customer IDs from the 'Customers' table where the country is France, ensuring each customer is counted only once even if they appear multiple times in the database. The `COUNT` function then calculates how many unique customers meet this criterion.",
+        "sql_query": "```sql\nSELECT COUNT(DISTINCT CustomerID) FROM Customers WHERE Country = 'France';\n```\n\nThis query will return a single value representing the number of distinct customers from France in the database."
+      },
+      {
+        "augmented": true,
+        "question": "List all products in the Beverages category.",
+        "db_schema": "Table: Categories\n  - CategoryID (INTEGER)\n  - CategoryName (TEXT)\n  - Description (TEXT)\n  - Picture (BLOB)\n\nTable: sqlite_sequence\n  - name ()\n  - seq ()\n\nTable: CustomerCustomerDemo\n  - CustomerID (TEXT)\n  - CustomerTypeID (TEXT)\n\nTable: CustomerDemographics\n  - CustomerTypeID (TEXT)\n  - CustomerDesc (TEXT)\n\nTable: Customers\n  - CustomerID (TEXT)\n  - CompanyName (TEXT)\n  - ContactName (TEXT)\n  - ContactTitle (TEXT)\n  - Address (TEXT)\n  - City (TEXT)\n  - Region (TEXT)\n  - PostalCode (TEXT)\n  - Country (TEXT)\n  - Phone (TEXT)\n  - Fax (TEXT)\n\nTable: Employees\n  - EmployeeID (INTEGER)\n  - LastName (TEXT)\n  - FirstName (TEXT)\n  - Title (TEXT)\n  - TitleOfCourtesy (TEXT)\n  - BirthDate (DATE)\n  - HireDate (DATE)\n  - Address (TEXT)\n  - City (TEXT)\n  - Region (TEXT)\n  - PostalCode (TEXT)\n  - Country (TEXT)\n  - HomePhone (TEXT)\n  - Extension (TEXT)\n  - Photo (BLOB)\n  - Notes (TEXT)\n  - ReportsTo (INTEGER)\n  - PhotoPath (TEXT)\n\nTable: EmployeeTerritories\n  - EmployeeID (INTEGER)\n  - TerritoryID (TEXT)\n\nTable: Order Details\n  - OrderID (INTEGER)\n  - ProductID (INTEGER)\n  - UnitPrice (NUMERIC)\n  - Quantity (INTEGER)\n  - Discount (REAL)\n\nTable: Orders\n  - OrderID (INTEGER)\n  - CustomerID (TEXT)\n  - EmployeeID (INTEGER)\n  - OrderDate (DATETIME)\n  - RequiredDate (DATETIME)\n  - ShippedDate (DATETIME)\n  - ShipVia (INTEGER)\n  - Freight (NUMERIC)\n  - ShipName (TEXT)\n  - ShipAddress (TEXT)\n  - ShipCity (TEXT)\n  - ShipRegion (TEXT)\n  - ShipPostalCode (TEXT)\n  - ShipCountry (TEXT)\n\nTable: Products\n  - ProductID (INTEGER)\n  - ProductName (TEXT)\n  - SupplierID (INTEGER)\n  - CategoryID (INTEGER)\n  - QuantityPerUnit (TEXT)\n  - UnitPrice (NUMERIC)\n  - UnitsInStock (INTEGER)\n  - UnitsOnOrder (INTEGER)\n  - ReorderLevel (INTEGER)\n  - Discontinued (TEXT)\n\nTable: Regions\n  - RegionID (INTEGER)\n  - RegionDescription (TEXT)\n\nTable: Shippers\n  - ShipperID (INTEGER)\n  - CompanyName (TEXT)\n  - Phone (TEXT)\n\nTable: Suppliers\n  - SupplierID (INTEGER)\n  - CompanyName (TEXT)\n  - ContactName (TEXT)\n  - ContactTitle (TEXT)\n  - Address (TEXT)\n  - City (TEXT)\n  - Region (TEXT)\n  - PostalCode (TEXT)\n  - Country (TEXT)\n  - Phone (TEXT)\n  - Fax (TEXT)\n  - HomePage (TEXT)\n\nTable: Territories\n  - TerritoryID (TEXT)\n  - TerritoryDescription (TEXT)\n  - RegionID (INTEGER)\n\n",
+        "plan": "",
+        "reasoning": "To list all products in the Beverages category, we need to join the 'Products' table with the 'Categories' table on their CategoryID fields. We will filter the results where the CategoryName is \"Beverages\". This requires a SQL query that selects product names from the Products table and matches them based on the corresponding CategoryID in both tables.",
+        "sql_query": "SELECT p.ProductName FROM Products AS prod INNER JOIN Categories AS cat ON prod.CategoryID = cat.CategoryID WHERE cat.CategoryName = 'Beverages';"
+      },
+      {
+        "augmented": true,
+        "question": "What is the total revenue for order 10248?",
+        "db_schema": "Table: Categories\n  - CategoryID (INTEGER)\n  - CategoryName (TEXT)\n  - Description (TEXT)\n  - Picture (BLOB)\n\nTable: sqlite_sequence\n  - name ()\n  - seq ()\n\nTable: CustomerCustomerDemo\n  - CustomerID (TEXT)\n  - CustomerTypeID (TEXT)\n\nTable: CustomerDemographics\n  - CustomerTypeID (TEXT)\n  - CustomerDesc (TEXT)\n\nTable: Customers\n  - CustomerID (TEXT)\n  - CompanyName (TEXT)\n  - ContactName (TEXT)\n  - ContactTitle (TEXT)\n  - Address (TEXT)\n  - City (TEXT)\n  - Region (TEXT)\n  - PostalCode (TEXT)\n  - Country (TEXT)\n  - Phone (TEXT)\n  - Fax (TEXT)\n\nTable: Employees\n  - EmployeeID (INTEGER)\n  - LastName (TEXT)\n  - FirstName (TEXT)\n  - Title (TEXT)\n  - TitleOfCourtesy (TEXT)\n  - BirthDate (DATE)\n  - HireDate (DATE)\n  - Address (TEXT)\n  - City (TEXT)\n  - Region (TEXT)\n  - PostalCode (TEXT)\n  - Country (TEXT)\n  - HomePhone (TEXT)\n  - Extension (TEXT)\n  - Photo (BLOB)\n  - Notes (TEXT)\n  - ReportsTo (INTEGER)\n  - PhotoPath (TEXT)\n\nTable: EmployeeTerritories\n  - EmployeeID (INTEGER)\n  - TerritoryID (TEXT)\n\nTable: Order Details\n  - OrderID (INTEGER)\n  - ProductID (INTEGER)\n  - UnitPrice (NUMERIC)\n  - Quantity (INTEGER)\n  - Discount (REAL)\n\nTable: Orders\n  - OrderID (INTEGER)\n  - CustomerID (TEXT)\n  - EmployeeID (INTEGER)\n  - OrderDate (DATETIME)\n  - RequiredDate (DATETIME)\n  - ShippedDate (DATETIME)\n  - ShipVia (INTEGER)\n  - Freight (NUMERIC)\n  - ShipName (TEXT)\n  - ShipAddress (TEXT)\n  - ShipCity (TEXT)\n  - ShipRegion (TEXT)\n  - ShipPostalCode (TEXT)\n  - ShipCountry (TEXT)\n\nTable: Products\n  - ProductID (INTEGER)\n  - ProductName (TEXT)\n  - SupplierID (INTEGER)\n  - CategoryID (INTEGER)\n  - QuantityPerUnit (TEXT)\n  - UnitPrice (NUMERIC)\n  - UnitsInStock (INTEGER)\n  - UnitsOnOrder (INTEGER)\n  - ReorderLevel (INTEGER)\n  - Discontinued (TEXT)\n\nTable: Regions\n  - RegionID (INTEGER)\n  - RegionDescription (TEXT)\n\nTable: Shippers\n  - ShipperID (INTEGER)\n  - CompanyName (TEXT)\n  - Phone (TEXT)\n\nTable: Suppliers\n  - SupplierID (INTEGER)\n  - CompanyName (TEXT)\n  - ContactName (TEXT)\n  - ContactTitle (TEXT)\n  - Address (TEXT)\n  - City (TEXT)\n  - Region (TEXT)\n  - PostalCode (TEXT)\n  - Country (TEXT)\n  - Phone (TEXT)\n  - Fax (TEXT)\n  - HomePage (TEXT)\n\nTable: Territories\n  - TerritoryID (TEXT)\n  - TerritoryDescription (TEXT)\n  - RegionID (INTEGER)\n\n",
+        "plan": "",
+        "reasoning": "To calculate the total revenue for order number 10248, we need to find all products associated with this specific order by joining the 'Orders' table with the 'Order Details' and 'Products' tables. Then, multiply each product's unit price (from the 'Products' table) by its quantity ordered in that particular order from the 'Order Details', sum these amounts for all items within the same order to get a subtotal per item type or category if necessary, then aggregate this total across all products of an individual customer.",
+        "sql_query": "SELECT SUM(od.UnitPrice * od.Quantity) AS TotalRevenue \nFROM Orders o JOIN OrderDetails od ON o.OrderID = od.OrderID \nWHERE o.OrderID = '10248' AND EXISTS (\n    SELECT 1 FROM Products p WHERE p.ProductID IN (SELECT product_id FROM OrderDetails WHERE order_details.order_id=o.OrderId)\n);\n\n## completed ##"
+      },
+      {
+        "augmented": true,
+        "question": "Find the most expensive product.",
+        "db_schema": "Table: Categories\n  - CategoryID (INTEGER)\n  - CategoryName (TEXT)\n  - Description (TEXT)\n  - Picture (BLOB)\n\nTable: sqlite_sequence\n  - name ()\n  - seq ()\n\nTable: CustomerCustomerDemo\n  - CustomerID (TEXT)\n  - CustomerTypeID (TEXT)\n\nTable: CustomerDemographics\n  - CustomerTypeID (TEXT)\n  - CustomerDesc (TEXT)\n\nTable: Customers\n  - CustomerID (TEXT)\n  - CompanyName (TEXT)\n  - ContactName (TEXT)\n  - ContactTitle (TEXT)\n  - Address (TEXT)\n  - City (TEXT)\n  - Region (TEXT)\n  - PostalCode (TEXT)\n  - Country (TEXT)\n  - Phone (TEXT)\n  - Fax (TEXT)\n\nTable: Employees\n  - EmployeeID (INTEGER)\n  - LastName (TEXT)\n  - FirstName (TEXT)\n  - Title (TEXT)\n  - TitleOfCourtesy (TEXT)\n  - BirthDate (DATE)\n  - HireDate (DATE)\n  - Address (TEXT)\n  - City (TEXT)\n  - Region (TEXT)\n  - PostalCode (TEXT)\n  - Country (TEXT)\n  - HomePhone (TEXT)\n  - Extension (TEXT)\n  - Photo (BLOB)\n  - Notes (TEXT)\n  - ReportsTo (INTEGER)\n  - PhotoPath (TEXT)\n\nTable: EmployeeTerritories\n  - EmployeeID (INTEGER)\n  - TerritoryID (TEXT)\n\nTable: Order Details\n  - OrderID (INTEGER)\n  - ProductID (INTEGER)\n  - UnitPrice (NUMERIC)\n  - Quantity (INTEGER)\n  - Discount (REAL)\n\nTable: Orders\n  - OrderID (INTEGER)\n  - CustomerID (TEXT)\n  - EmployeeID (INTEGER)\n  - OrderDate (DATETIME)\n  - RequiredDate (DATETIME)\n  - ShippedDate (DATETIME)\n  - ShipVia (INTEGER)\n  - Freight (NUMERIC)\n  - ShipName (TEXT)\n  - ShipAddress (TEXT)\n  - ShipCity (TEXT)\n  - ShipRegion (TEXT)\n  - ShipPostalCode (TEXT)\n  - ShipCountry (TEXT)\n\nTable: Products\n  - ProductID (INTEGER)\n  - ProductName (TEXT)\n  - SupplierID (INTEGER)\n  - CategoryID (INTEGER)\n  - QuantityPerUnit (TEXT)\n  - UnitPrice (NUMERIC)\n  - UnitsInStock (INTEGER)\n  - UnitsOnOrder (INTEGER)\n  - ReorderLevel (INTEGER)\n  - Discontinued (TEXT)\n\nTable: Regions\n  - RegionID (INTEGER)\n  - RegionDescription (TEXT)\n\nTable: Shippers\n  - ShipperID (INTEGER)\n  - CompanyName (TEXT)\n  - Phone (TEXT)\n\nTable: Suppliers\n  - SupplierID (INTEGER)\n  - CompanyName (TEXT)\n  - ContactName (TEXT)\n  - ContactTitle (TEXT)\n  - Address (TEXT)\n  - City (TEXT)\n  - Region (TEXT)\n  - PostalCode (TEXT)\n  - Country (TEXT)\n  - Phone (TEXT)\n  - Fax (TEXT)\n  - HomePage (TEXT)\n\nTable: Territories\n  - TerritoryID (TEXT)\n  - TerritoryDescription (TEXT)\n  - RegionID (INTEGER)\n\n",
+        "plan": "",
+        "reasoning": "To find out how much more expensive it is to buy one unit of Product A than product B, we need additional information or context about what constitutes a 'unit' in this scenario. The instruction provided does not specify the cost per item for either `ProductA` (which seems like an error as there are no such columns mentioned; I assume you meant ",
+        "sql_query": "SELECT MAX(price) FROM Product WHERE product = 'product' AND price > $10.59 ORDER BY id DESC LIMIT 2;"
+      }
+    ],
+    "signature": {
+      "instructions": "Generate a SQLite query based on the question, schema, and plan.",
+      "fields": [
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Plan:",
+          "description": "Execution plan with constraints and entities."
+        },
+        {
+          "prefix": "Db Schema:",
+          "description": "Schema of the available tables."
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Sql Query:",
+          "description": "The SQLite query to answer the question."
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.9",
+      "dspy": "2.6.27",
+      "cloudpickle": "3.1"
+    }
+  }
+}

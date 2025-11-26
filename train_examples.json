@@ -1,0 +1,12 @@
+[
+    {"question": "How many customers are from France?", "sql_query": "SELECT COUNT(*) FROM Customers WHERE Country = 'France'"},
+    {"question": "List all products in the Beverages category.", "sql_query": "SELECT p.ProductName FROM Products p JOIN Categories c ON p.CategoryID = c.CategoryID WHERE c.CategoryName = 'Beverages'"},
+    {"question": "What is the total revenue for order 10248?", "sql_query": "SELECT SUM(UnitPrice * Quantity * (1 - Discount)) FROM \"Order Details\" WHERE OrderID = 10248"},
+    {"question": "Find the most expensive product.", "sql_query": "SELECT ProductName, UnitPrice FROM Products ORDER BY UnitPrice DESC LIMIT 1"},
+    {"question": "Which employee has the most orders?", "sql_query": "SELECT EmployeeID, COUNT(*) as OrderCount FROM Orders GROUP BY EmployeeID ORDER BY OrderCount DESC LIMIT 1"},
+    {"question": "List customers who ordered Tofu.", "sql_query": "SELECT DISTINCT c.CompanyName FROM Customers c JOIN Orders o ON c.CustomerID = o.CustomerID JOIN \"Order Details\" od ON o.OrderID = od.OrderID JOIN Products p ON od.ProductID = p.ProductID WHERE p.ProductName = 'Tofu'"},
+    {"question": "What is the average price of products?", "sql_query": "SELECT AVG(UnitPrice) FROM Products"},
+    {"question": "Show orders placed in 1997.", "sql_query": "SELECT * FROM Orders WHERE strftime('%Y', OrderDate) = '1997'"},
+    {"question": "Count products by category.", "sql_query": "SELECT CategoryID, COUNT(*) FROM Products GROUP BY CategoryID"},
+    {"question": "Who is the supplier of Chai?", "sql_query": "SELECT s.CompanyName FROM Suppliers s JOIN Products p ON s.SupplierID = p.SupplierID WHERE p.ProductName = 'Chai'"}
+]
